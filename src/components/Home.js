@@ -9,7 +9,13 @@ const Home = () => {
 };
 
 const Count = () => {
+  // const [count, setCount] = useState(1);
   const [count, setCount] = useState(0);
+  const incrementCount = () => setCount(count + 1);
+  let decrementCount = () => setCount(count - 1);
+  if (count <= 1) {
+    decrementCount = () => setCount(0);
+  }
   return (
     <>
       <div>
@@ -17,10 +23,10 @@ const Count = () => {
           <span className="count">COUNT: ({count})</span>
         </h1>
         <div>
-          <button className="on-btn" onClick={() => setCount(count + 1)}>
+          <button className="on-btn" onClick={incrementCount}>
             Increase
           </button>
-          <button className="on-btn" onClick={() => setCount(count - 1)}>
+          <button className="on-btn" onClick={decrementCount}>
             Decrease
           </button>
         </div>
